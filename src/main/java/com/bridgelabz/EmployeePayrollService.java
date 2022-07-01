@@ -9,7 +9,7 @@ public class EmployeePayrollService<T> {
 
     public static Scanner sc = new Scanner(System.in);
 
-    public enum IOService {
+    public enum IOService { 
         File_IO, Console_IO;
     }
 
