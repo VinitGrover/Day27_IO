@@ -5,40 +5,42 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeePayrollService {
-
-    public static Scanner sc = new Scanner(System.in);
-
     public enum IOService {
-        File_IO, Console_IO
+        CONSOLE_IO, FILE_IO, DB_IO, REST_IO
     }
 
-    List<EmployeePayrollData> payrollList;
+    private List<EmployeePayrollData> employeePayrollList;
 
-    EmployeePayrollService(List<EmployeePayrollData> payrollList) {
-        this.payrollList = payrollList;
+    public EmployeePayrollService() {
+    }
+
+    public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList) {
+        this.employeePayrollList = employeePayrollList;
     }
 
     public static void main(String[] args) {
-        ArrayList<EmployeePayrollData> employeePayrollList = new ArrayList<>();
+        List<EmployeePayrollData> employeePayrollList = new ArrayList<EmployeePayrollData>();
+
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
-        employeePayrollService.writeEmployeePayrollData();
-        employeePayrollService.readEmployeePayrollData();
+
+        Scanner consoleInputReader = new Scanner(System.in);
+
+        employeePayrollService.readEmployeeData(consoleInputReader);
+
+        employeePayrollService.writeEmployeeData();
     }
 
-    private void writeEmployeePayrollData() {
-        System.out.println("Enter Employee id");
-        int id = sc.nextInt();
-        System.out.println("Enter Employee name");
-        String name = sc.next();
-        System.out.println("Enter Employee Salary");
-        double salary = sc.nextDouble();
-
-        payrollList.add(new EmployeePayrollData(id, name, salary));
+    private void readEmployeeData(Scanner consoleInputReader) {
+        System.out.println("Enter employee ID : ");
+        int id = Integer.parseInt(consoleInputReader.nextLine());
+        System.out.println("Enter employee name : ");
+        String name = consoleInputReader.nextLine();
+        System.out.println("Enter employee salary : ");
+        double salary = Double.parseDouble(consoleInputReader.nextLine());
+        employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
 
-    private void readEmployeePayrollData() {
-        for (EmployeePayrollData employeePayrollData : payrollList) {
-            System.out.println(employeePayrollData + " ");
-        }
+    private void writeEmployeeData() {
+        System.out.println("Writing Employee Payroll Data to Console\n" + employeePayrollList);
     }
 }

@@ -1,40 +1,45 @@
 package com.bridgelabz;
 
 public class EmployeePayrollData {
-    int id;
-    String name;
-    double salary;
+    private int employeeId;
+    private String employeeName;
+    private double salary;
 
-    EmployeePayrollData() {
-    }
-
-    public EmployeePayrollData(int id, String name, double salary) {
-        this.id = id;
-        this.name = name;
+    public EmployeePayrollData(int employeeId, String employeeName, double salary) {
+        super();
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
         this.salary = salary;
     }
 
-    public int getId() {
-        return id;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public String getName() {
-        return name;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     public double getSalary() {
         return salary;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeePayrollData [employeeId=" + employeeId + ", employeeName=" + employeeName + ", salary=" + salary
+                + "]";
+    }
+
 }
