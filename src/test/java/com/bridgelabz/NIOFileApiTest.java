@@ -11,7 +11,6 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
 
 class NIOFileAPITest {
-
     private static String HOME = "D:\\GitProgram\\Day27_IO\\src\\main\\java\\com\\bridgelabz";
     private static String PLAY_WITH_NIO = "TempPlayGround";
 
@@ -40,7 +39,6 @@ class NIOFileAPITest {
             }
             assertTrue(Files.exists(tempFile));
         });
-
 
         System.out.println("Files.list");
         Files.list(playPath).filter(Files::isRegularFile).forEach(System.out::println);
