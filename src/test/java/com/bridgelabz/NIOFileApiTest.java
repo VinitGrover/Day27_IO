@@ -16,6 +16,7 @@ class NIOFileAPITest {
     private static String PLAY_WITH_NIO = "TempPlayGround";
 
     @Test
+
     public void givenPathWhenCheckedThenConfirm() throws IOException {
 
         Path homePath = Paths.get(HOME);
@@ -25,7 +26,6 @@ class NIOFileAPITest {
         Path playPath = Paths.get(HOME + "/" + PLAY_WITH_NIO);
         if (Files.exists(playPath))
             FileUtils.deleteFiles(playPath.toFile());
-
         assertTrue(Files.notExists(playPath));
 
         Files.createDirectory(playPath);
@@ -40,6 +40,8 @@ class NIOFileAPITest {
             }
             assertTrue(Files.exists(tempFile));
         });
+
+
         System.out.println("Files.list");
         Files.list(playPath).filter(Files::isRegularFile).forEach(System.out::println);
         System.out.println("Files.newDirectory");
