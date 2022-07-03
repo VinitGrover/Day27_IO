@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 public class EmployeePayrollData {
+
     private int employeeId;
     private String employeeName;
     private double salary;
